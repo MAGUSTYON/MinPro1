@@ -2,7 +2,7 @@ watchlist = ["naruto", "black clover", "kny", "jjk", "horimiya"]
 ditonton = []
 
 while True:
-    print("MENU ANIME TRACKER")
+    print("MENU")
     print("1. Tambah anime ke watchlist")
     print("2. Lihat watchlist")
     print("3. Tandai anime sudah ditonton + beri rating")
@@ -10,7 +10,7 @@ while True:
     print("5. Ubah rating anime yang sudah ditonton")
     print("6. Hapus anime dari watchlist")
     print("7. Keluar")
-    menu = input("Pilih menu (1-6): ")
+    menu = input("Pilih menu (1-7): ")
 
     if menu == "1":
         while True:
@@ -43,9 +43,8 @@ while True:
                     rating_input = input("Masukkan rating (0-10): ")
                     angka = True
                     if not rating_input.isdigit():
-                        angka = False
-                    if angka == False or rating_input == "":
                         print("Rating harus berupa angka.")
+                        continue
                     else:
                         rating = int(rating_input)
                         if rating < 0 or rating > 10:
@@ -66,36 +65,43 @@ while True:
         if not ditonton:
             print("Belum ada anime yang selesai ditonton.")
         else:
-            print("Daftar anime yang sudah ditonton:", ditonton)
-            ubah = input("Masukkan judul anime yang ingin diubah ratingnya: ")
-            for anime in ditonton:
-                if anime[0] == ubah:
-                    while True:
-                        rating_baru = input("Masukkan rating baru untuk " + ubah + " 0-10:",)
-                        angka = True
-                        if not rating_baru.isdigit():
-                            angka = False
-                        if angka == False or rating_baru == "":
-                            print("Rating harus angka")
-                        else:
-                            rating= int(rating_baru)
-                            if rating < 0 or rating > 9:
+            while True:
+                print("Daftar anime yang sudah ditonton:", ditonton)
+                print("Ketik 'selesai' kalau sudah selesai.")
+                ubah = input("Masukkan judul anime yang ingin diubah ratingnya: ")
+                if ubah == "selesai":
+                    break
+                for anime in ditonton:
+                    if anime[0] == ubah:
+                        while True:
+                            rating_baru = input("Masukkan rating baru untuk " + ubah + " (0-10): ")
+                            if not rating_baru.isdigit():
+                                print("Rating harus berupa angka.")
+                                continue
+                            rating = int(rating_baru)
+                            if rating < 0 or rating > 10:
                                 print("Rating harus antara 0 - 10.")
                             else:
                                 anime[1] = rating
-                                print("Rating", ubah, "berhasil diubah menjadi", rating,)
+                                print("Rating", ubah, "berhasil diubah menjadi", rating)
                                 break
-                    break  
-            else:
-                print(ubah, "tidak ada di daftar yang sudah ditonton.")
+                        break
+                else:
+                    print(ubah, "tidak ada di daftar yang sudah ditonton.")
 
     elif menu == "6":
-        hapus = input("Masukkan judul anime yang ingin dihapus dari watchlist: ")
-        if hapus in watchlist:
-            watchlist.remove(hapus)
-            print(hapus, "berhasil dihapus dari watchlist.")
-        else:
-            print(hapus, "tidak ditemukan di watchlist.")    
+            while True:
+                print("daftar Watchlist:")
+                print(watchlist)
+                print("Ketik 'selesai' kalau sudah tidak ingin memasukkan watchlist lagi.")
+                hapus = input("Masukkan judul anime yang ingin dihapus dari watchlist: ")
+                if hapus == "selesai":
+                    break
+                elif hapus in watchlist:
+                    watchlist.remove(hapus)
+                    print(hapus, "berhasil dihapus dari watchlist.")
+                else:
+                    print(hapus, "tidak ditemukan di watchlist.")    
 
     elif menu == "7":
         print("exit")
