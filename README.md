@@ -1,8 +1,7 @@
 # MinPro1
 
 FLOWCHART:
-
-<img width="1307" height="1042" alt="FLOWCHART" src="https://github.com/user-attachments/assets/adad27ec-1f16-4d27-92e3-63a8fe7bb679" />
+<img width="1307" height="1042" alt="FLOWCHART" src="https://github.com/user-attachments/assets/d8369972-59d0-41fd-b9c7-27e80a7398df" />
 
 
 Program yang saya buat adalah watchlist anime, dimana bisa menambahkan anime ke watchlist lalu memindahkan yang di watchlist ke ditonton dan menambahkan ratingnya
