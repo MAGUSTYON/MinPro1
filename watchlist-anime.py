@@ -41,7 +41,6 @@ while True:
             elif anime in watchlist:
                 while True:
                     rating_input = input("Masukkan rating (0-10): ")
-                    angka = True
                     if not rating_input.isdigit():
                         print("Rating harus berupa angka.")
                         continue
